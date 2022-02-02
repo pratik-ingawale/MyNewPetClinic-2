@@ -1,4 +1,4 @@
-FROM maven as build 
+FROM mangeshabnave/spring-maven as build 
 WORKDIR /code
 COPY . . 
 RUN mvn package 
