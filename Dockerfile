@@ -1,11 +1,11 @@
-FROM mangeshabnave/spring-maven as build 
-WORKDIR /code
-COPY . . 
-RUN mvn package 
+#FROM mangeshabnave/spring-maven as build 
+#WORKDIR /code
+#COPY . . 
+#RUN mvn package 
 
 
-FROM java:8-jre-alpine
+FROM openjdk:19-ea-jdk-alpine3.16
 WORKDIR /
-COPY --from=build /code/target/spring-petclinic-*.jar app
+COPY target/spring-petclinic-*.jar app
 EXPOSE 8080 
 CMD java -jar app 
