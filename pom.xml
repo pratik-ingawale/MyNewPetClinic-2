@@ -35,7 +35,20 @@
     <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
     <sonar.language>java</sonar.language>
   </properties>
-
+  <profiles>
+    <profile>
+       <id>sonar</id>
+       <activation>
+       <activeByDefault>true</activeByDefault>
+      </activation>
+     <properties>
+       <!-- Optional URL to server. Default value is http://localhost:9000 -->
+       <sonar.host.url>
+          http://192.168.253.129:9000
+       </sonar.host.url>
+     </properties>
+    </profile>
+  </profiles>
   <dependencies>
     <!-- Spring and Spring Boot dependencies -->
     <dependency>
@@ -215,6 +228,11 @@
             <artifactId>mockito-core</artifactId>
             <version>${mockito.version}</version>
           </dependency>
+         <dependency>
+           <groupId>org.sonarsource.scanner.maven</groupId>
+           <artifactId>sonar-maven-plugin</artifactId>
+           <version>3.2</version>
+         </dependency>
         </dependencies>
       </plugin>
      <plugin>
