@@ -34,7 +34,10 @@
     <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
     <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
     <sonar.language>java</sonar.language>
+    <dependency-check-maven.version>5.3.0</dependency-check-maven.version>
   </properties>
+    
+    
   <profiles>
     <profile>
        <id>sonar</id>
@@ -48,6 +51,25 @@
        </sonar.host.url>
      </properties>
     </profile>
+    <profile>
+    <id>owasp-dependency-check</id>
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.owasp</groupId>
+          <artifactId>dependency-check-maven</artifactId>
+          <version>${dependency-check-maven.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </build>
+  </profile>
     </profiles>
   <dependencies>
     <!-- Spring and Spring Boot dependencies -->
