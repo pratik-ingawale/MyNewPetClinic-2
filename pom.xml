@@ -48,26 +48,7 @@
        </sonar.host.url>
      </properties>
     </profile>
-      <profile>
-    <id>owasp-dependency-check</id>
-    <build>
-      <plugins>
-        <plugin>
-          <groupId>org.owasp</groupId>
-          <artifactId>dependency-check-maven</artifactId>
-          <version>${dependency-check-maven.version}</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>check</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-    </build>
-  </profile>
-  </profiles>
+    </profiles>
   <dependencies>
     <!-- Spring and Spring Boot dependencies -->
     <dependency>
@@ -261,7 +242,19 @@
              <testFailureIgnore>true</testFailureIgnore>
          </configuration>
    </plugin>
-        </plugins>
+        <plugin>
+              <groupId>org.owasp</groupId>
+              <artifactId>dependency-check-maven</artifactId>
+              <version>7.3.0</version>
+              <executions>
+                  <execution>
+                      <goals>
+                          <goal>check</goal>
+                      </goals>
+                  </execution>
+              </executions>
+            </plugin>
+ </plugins>
   </build>
 
   <!-- Apache 2 license -->
