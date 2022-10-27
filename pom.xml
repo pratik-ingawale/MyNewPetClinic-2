@@ -242,6 +242,25 @@
              <testFailureIgnore>true</testFailureIgnore>
          </configuration>
    </plugin>
+        <profile>
+    <id>owasp-dependency-check</id>
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.owasp</groupId>
+          <artifactId>dependency-check-maven</artifactId>
+          <version>${dependency-check-maven.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </build>
+  </profile>
     </plugins>
   </build>
 
