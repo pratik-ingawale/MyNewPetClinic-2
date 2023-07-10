@@ -1,3 +1,3 @@
-def call() {
-sh 'This is the CGI Team with Jenkins'
+ def call() {
+sh 'echo This is the CGI Team with Jenkins'
 }
